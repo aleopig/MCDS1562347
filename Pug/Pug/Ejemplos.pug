@@ -1,0 +1,79 @@
+<!--Atributos en Línea -->
+a(class='button', href='www.lapatria.com' target='_blank') LaPatria
+
+<!--Atributos en Multi Línea -->
+input(type='checkbox' name='agreement' checked)
+
+<!--Atributos en Atributos Booleanos -->
+input(type='checkbox'  checked='true')
+
+<!--Estilos en los Atributos -->
+a(style={color:'red', background: 'crimson' })
+- var clases=['black','pink','orange']
+a(class=clases)
+
+<!--Clases Literal -->
+a.button
+.link
+button.large.red.center
+
+<!-- Identificador Literal -->
+#link
+
+<!-- CSS en archivo PUG -->
+style(stylesheet).
+  .classname {property:value;}
+  p#valueunique{
+    property1:value1;
+    property2:value2;
+    property3:value3;
+  }
+
+  <!-- Js en archivo pug -->
+  <section id="output"></section>
+script
+var op = document.getElementById(‘output’);
+var name = prompt(“What’s your name?”);
+op.innerHTML = ‘<h1> Welcome: ‘+name+’</h1>’;
+
+<!-- Casos -->
+- var naranjas=1
+case naranjas
+  when 0
+   p no tienes naranjas
+  when 1
+    p tienes una naranja
+  default
+    p tienes #{naranjas}naranjas
+
+<!-- Código -->
+-var list=["limon", "naranja", "mandarina"]
+each item in list
+  li=item
+
+<!-- Comentarios -->
+//Esto es una linea comentada
+
+<!-- Condicionales -->
+-var authorised = false
+- var user = {description: 'Lorem lpsum Dolor'}
+article #user
+  if authorised
+    h2.green Description    p.description=user.description
+  else
+    h2.red Description
+    p.description User has no description
+
+<!-- Iteraciones -->
+-var x=1;
+ul
+  while x<4
+   li=x++
+
+<!-- Reutilizable -->
+mixin ropa(nombre)
+  li.ropa=nombre
+ul
+  +ropa('camisa')
+  +ropa('pantalón')
+  +ropa('falda')
